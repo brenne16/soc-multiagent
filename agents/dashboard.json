@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-06-19T12:12:12.911902Z",
+  "total_incidents": 4,
+  "by_severity": {
+    "high": 3,
+    "critical": 1
+  },
+  "by_recommended_action": {
+    "block_ip": 3,
+    "isolate_machine": 1
+  },
+  "by_attack_type": {
+    "brute_force_ssh": 1,
+    "port_scan": 1,
+    "sql_injection": 1,
+    "lateral_movement": 1,
+    "privilege_escalation": 1,
+    "ddos_udp_flood": 1
+  },
+  "incidents_overview": [
+    {
+      "incident_id": "INC-8B8CAF3E",
+      "severity": "high",
+      "attack_types": [
+        "brute_force_ssh",
+        "port_scan"
+      ],
+      "source_ips": [
+        "192.168.1.45"
+      ]
+    },
+    {
+      "incident_id": "INC-AE8BC8DA",
+      "severity": "high",
+      "attack_types": [
+        "sql_injection"
+      ],
+      "source_ips": [
+        "203.0.113.77"
+      ]
+    },
+    {
+      "incident_id": "INC-61558C83",
+      "severity": "critical",
+      "attack_types": [
+        "lateral_movement",
+        "privilege_escalation"
+      ],
+      "source_ips": [
+        "10.0.0.12"
+      ]
+    },
+    {
+      "incident_id": "INC-0533140E",
+      "severity": "high",
+      "attack_types": [
+        "ddos_udp_flood"
+      ],
+      "source_ips": [
+        "198.51.100.34"
+      ]
+    }
+  ]
+}

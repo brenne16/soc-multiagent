@@ -1,0 +1,115 @@
+[
+  {
+    "event_id": "EVT-8B8CAF3E",
+    "timestamp": "2026-06-19T00:20:46.889997Z",
+    "source_ip": "192.168.1.45",
+    "event_type": "authentication_failure",
+    "analysis": {
+      "attack_type": "brute_force_ssh",
+      "confidence": 0.7999999999999999,
+      "severity": "high",
+      "correlated_events": [
+        "EVT-585042FC"
+      ],
+      "indicators": [
+        "5 tentatives de connexion échouées",
+        "Ciblage du compte root"
+      ],
+      "recommended_action": "block_ip",
+      "explanation": "Un événement de sécurité a été détecté impliquant une tentative répétée de brute-force SSH sur l'adresse IP 192.168.1.45, visant le compte root avec cinq échecs de connexion. Cette attaque est considérée comme dangereuse car elle vise à obtenir des accès administratifs privilégiés et peut entraîner une intrusion potentielle dans notre infrastructure. Une analyse approfondie est nécessaire pour identifier la source de cette attaque et mettre en place les mesures appropriées de protection."
+    }
+  },
+  {
+    "event_id": "EVT-585042FC",
+    "timestamp": "2026-06-19T00:20:46.890052Z",
+    "source_ip": "192.168.1.45",
+    "event_type": "port_scan",
+    "analysis": {
+      "attack_type": "port_scan",
+      "confidence": 0.85,
+      "severity": "medium",
+      "correlated_events": [
+        "EVT-8B8CAF3E"
+      ],
+      "indicators": [
+        "5 ports scannés en peu de temps"
+      ],
+      "recommended_action": "block_ip",
+      "explanation": "Un port scan a été détecté provenant de l'adresse IP 192.168.1.45, impliquant la tentative d'exploration de ports réseau effectuée par un attaquant potentiel. Cinq ports ont été scannés en peu de temps, ce qui indique une activité anormale et un risque élevé pour les systèmes concernés. Il est important de vérifier immédiatement l'état de sécurité des ports ciblés et d'appliquer les mesures appropriées pour prévenir toute intrusion potentielle."
+    }
+  },
+  {
+    "event_id": "EVT-AE8BC8DA",
+    "timestamp": "2026-06-19T00:20:46.890094Z",
+    "source_ip": "203.0.113.77",
+    "event_type": "http_suspicious_request",
+    "analysis": {
+      "attack_type": "sql_injection",
+      "confidence": 0.85,
+      "severity": "high",
+      "correlated_events": [],
+      "indicators": [
+        "Payload suspect détecté dans la requête HTTP",
+        "Status code 500 (erreur serveur)"
+      ],
+      "recommended_action": "block_ip",
+      "explanation": "Un événement de sécurité a été détecté impliquant une attaque SQL injection provenant de l'adresse IP 203.0.113.77. Deux requêtes suspectes ont été identifiées dans lesquelles un payload malveillant a été détecté dans la requête HTTP, entraînant une erreur serveur (status code 500). Cet incident est considéré comme dangereux car il peut permettre à l'attaquant de manipuler ou accéder aux données sensibles de notre système. Il est important de réagir rapidement pour limiter les dommages et protéger nos ressources."
+    }
+  },
+  {
+    "event_id": "EVT-61558C83",
+    "timestamp": "2026-06-19T00:20:46.890126Z",
+    "source_ip": "10.0.0.12",
+    "event_type": "privilege_escalation",
+    "analysis": {
+      "attack_type": "privilege_escalation",
+      "confidence": 0.8,
+      "severity": "critical",
+      "correlated_events": [
+        "EVT-D7B34C6A"
+      ],
+      "indicators": [
+        "Élévation de privilèges vers root",
+        "Commande exécutée: /bin/bash"
+      ],
+      "recommended_action": "isolate_machine",
+      "explanation": "Un événement de sécurité critique a été détecté impliquant une élévation de privilèges vers le niveau root (10.0.0.12). Une commande /bin/bash a été exécutée, ce qui indique un potentiel accès non autorisé à des ressources sensibles du système. Il est important d'enquêter immédiatement pour identifier la source de l'attaque et limiter les conséquences potentielles."
+    }
+  },
+  {
+    "event_id": "EVT-D7B34C6A",
+    "timestamp": "2026-06-19T00:20:46.890143Z",
+    "source_ip": "10.0.0.12",
+    "event_type": "lateral_movement",
+    "analysis": {
+      "attack_type": "lateral_movement",
+      "confidence": 0.75,
+      "severity": "critical",
+      "correlated_events": [
+        "EVT-61558C83"
+      ],
+      "indicators": [
+        "Connexion SMB suspecte vers ADMIN$"
+      ],
+      "recommended_action": "isolate_machine",
+      "explanation": "Incident de sécurité détecté : lateral movement identifié à partir de l'IP 10.0.0.12, caractérisé par une connexion suspecte vers ADMIN$ via SMB. Cette activité est considérée comme critique car elle peut indiquer un mouvement latéral dans notre réseau, ce qui peut permettre à l'attaquant d'accéder à des ressources sensibles. Il est important de prendre des mesures immédiates pour identifier et contenir la menace."
+    }
+  },
+  {
+    "event_id": "EVT-0533140E",
+    "timestamp": "2026-06-19T00:20:46.890166Z",
+    "source_ip": "198.51.100.34",
+    "event_type": "ddos_attempt",
+    "analysis": {
+      "attack_type": "ddos_udp_flood",
+      "confidence": 0.9,
+      "severity": "high",
+      "correlated_events": [],
+      "indicators": [
+        "15000 paquets/seconde détectés"
+      ],
+      "recommended_action": "block_ip",
+      "explanation": "Un événement DDoS a été détecté provenant de l'IP 198.51.100.34, caractérisé par une attaque UDP Flood. Des 15 000 paquets par seconde ont été détectés, ce qui constitue un niveau de critique élevé. Cette attaque peut entraîner une saturation des ressources réseau et d'infrastructure, pouvant avoir un impact négatif sur la disponibilité des services en ligne. Il est nécessaire d'analyser les données de l'attaque pour identifier les sources possibles et mettre en place des mesures de protection appropriées."
+    }
+  }
+]
