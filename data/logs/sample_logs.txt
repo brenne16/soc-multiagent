@@ -1,0 +1,15 @@
+Jun 18 08:12:33 server sshd[1234]: Failed password for root from 192.168.1.45 port 4521 ssh2
+Jun 18 08:12:34 server sshd[1234]: Failed password for root from 192.168.1.45 port 4521 ssh2
+Jun 18 08:12:35 server sshd[1234]: Failed password for root from 192.168.1.45 port 4521 ssh2
+Jun 18 08:12:36 server sshd[1234]: Failed password for admin from 192.168.1.45 port 4521 ssh2
+Jun 18 08:12:37 server sshd[1234]: Failed password for root from 192.168.1.45 port 4521 ssh2
+Jun 18 08:15:10 server kernel: TCP SYN from 192.168.1.45 port 80
+Jun 18 08:15:10 server kernel: TCP SYN from 192.168.1.45 port 443
+Jun 18 08:15:10 server kernel: TCP SYN from 192.168.1.45 port 8080
+Jun 18 08:15:10 server kernel: TCP SYN from 192.168.1.45 port 3306
+Jun 18 08:15:10 server kernel: TCP SYN from 192.168.1.45 port 5432
+Jun 18 09:03:55 server apache2: 203.0.113.77 - - [18/Jun/2026] "GET /index.php?id=1' OR 1=1 -- HTTP/1.1" 500
+Jun 18 09:03:56 server apache2: 203.0.113.77 - - [18/Jun/2026] "GET /index.php?id=1 UNION SELECT * FROM users -- HTTP/1.1" 500
+Jun 18 10:45:22 server sudo: www-data : TTY=unknown ; PWD=/ ; USER=root ; COMMAND=/bin/bash
+Jun 18 11:20:08 server smbd[5678]: Connection from 10.0.0.12 to share ADMIN$
+Jun 18 13:05:44 server firewall: UDP flood detected from 198.51.100.34 packets=15000/s

@@ -1,0 +1,106 @@
+[
+  {
+    "event_id": "EVT-F99CBB2A",
+    "timestamp": "2026-06-19T15:11:06.831418Z",
+    "event_type": "authentication_failure",
+    "raw_log": "Jun 18 08:12:33 server sshd[1234]: Failed password for root from 192.168.1.45 port 4521 ssh2",
+    "source": {
+      "ip": "192.168.1.45",
+      "port": 4521
+    },
+    "destination": {
+      "ip": "10.0.0.1",
+      "port": 22
+    },
+    "protocol": "SSH",
+    "metadata": {
+      "target_user": "root"
+    },
+    "count": 5
+  },
+  {
+    "event_id": "EVT-D1262262",
+    "timestamp": "2026-06-19T15:11:06.831515Z",
+    "event_type": "port_scan",
+    "raw_log": "Jun 18 08:15:10 server kernel: TCP SYN from 192.168.1.45 port 80",
+    "source": {
+      "ip": "192.168.1.45"
+    },
+    "destination": {
+      "port": 80
+    },
+    "protocol": "TCP",
+    "metadata": {},
+    "count": 5
+  },
+  {
+    "event_id": "EVT-DD8F6F1F",
+    "timestamp": "2026-06-19T15:11:06.831590Z",
+    "event_type": "http_suspicious_request",
+    "raw_log": "Jun 18 09:03:55 server apache2: 203.0.113.77 - - [18/Jun/2026] \"GET /index.php?id=1' OR 1=1 -- HTTP/1.1\" 500",
+    "source": {
+      "ip": "203.0.113.77"
+    },
+    "destination": {
+      "ip": "10.0.0.5",
+      "port": 80
+    },
+    "protocol": "HTTP",
+    "metadata": {
+      "method": "GET",
+      "url": "/index.php?id=1'",
+      "status_code": 500
+    },
+    "count": 2
+  },
+  {
+    "event_id": "EVT-4012742B",
+    "timestamp": "2026-06-19T15:11:06.831655Z",
+    "event_type": "privilege_escalation",
+    "raw_log": "Jun 18 10:45:22 server sudo: www-data : TTY=unknown ; PWD=/ ; USER=root ; COMMAND=/bin/bash",
+    "source": {
+      "ip": "10.0.0.12"
+    },
+    "destination": {},
+    "protocol": "INTERNAL",
+    "metadata": {
+      "target_user": "root",
+      "command": "/bin/bash"
+    },
+    "count": 1
+  },
+  {
+    "event_id": "EVT-516DCBAF",
+    "timestamp": "2026-06-19T15:11:06.831686Z",
+    "event_type": "lateral_movement",
+    "raw_log": "Jun 18 11:20:08 server smbd[5678]: Connection from 10.0.0.12 to share ADMIN$",
+    "source": {
+      "ip": "10.0.0.12"
+    },
+    "destination": {
+      "ip": "10.0.0.20"
+    },
+    "protocol": "SMB",
+    "metadata": {
+      "share": "ADMIN$"
+    },
+    "count": 1
+  },
+  {
+    "event_id": "EVT-8435872C",
+    "timestamp": "2026-06-19T15:11:06.831725Z",
+    "event_type": "ddos_attempt",
+    "raw_log": "Jun 18 13:05:44 server firewall: UDP flood detected from 198.51.100.34 packets=15000/s",
+    "source": {
+      "ip": "198.51.100.34"
+    },
+    "destination": {
+      "ip": "10.0.0.1"
+    },
+    "protocol": "UDP",
+    "metadata": {
+      "packets_per_second": 15000
+    },
+    "count": 1
+  }
+]
